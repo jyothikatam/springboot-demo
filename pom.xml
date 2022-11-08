@@ -5,7 +5,6 @@
 	<groupId>com.primecore</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<name>demo</name>
 	<url>http://maven.apache.org</url>
@@ -58,4 +57,29 @@
       <artifactId>postgresql</artifactId>
     </dependency>
 	</dependencies>
+	<build>
+		  <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.3</version>
+          <executions>
+              <execution>
+                  <phase>package</phase>
+                  <goals><goal>copy</goal></goals>
+                  <configuration>
+                      <artifactItems>
+                          <artifactItem>
+                              <groupId>com.heroku</groupId>
+                              <artifactId>webapp-runner</artifactId>
+                              <version>${webapp-runner.version}</version>
+                              <destFileName>webapp-runner.jar</destFileName>
+                          </artifactItem>
+                      </artifactItems>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
+  </plugins>
+	</build>
 </project>
