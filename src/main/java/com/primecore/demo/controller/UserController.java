@@ -18,6 +18,11 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	@GetMapping("/")
+	public String getMessage() {
+		return "Welcome !";
+	}
 
 	@PostMapping("/user/add")
 	public UserDTO addUser(@RequestBody UserDTO userDTO) {
