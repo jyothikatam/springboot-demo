@@ -21,7 +21,7 @@ public class UserController {
 	
 	@GetMapping("/")
 	public String getMessage() {
-		return "Welcome !";
+		return "Hello !";
 	}
 
 	@PostMapping("/user/add")
